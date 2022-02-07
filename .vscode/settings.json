@@ -1,3 +1,9 @@
 {
-    "makefile.extensionOutputFolder": "./.vscode"
+    "makefile.extensionOutputFolder": "./.vscode",
+    "files.associations": {
+        "*.properties": "properties",
+        "iostream": "cpp",
+        "ratio": "c",
+        "stdio.h": "c"
+    }
 }

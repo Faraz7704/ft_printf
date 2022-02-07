@@ -6,7 +6,7 @@
 /*   By: fkhan <fkhan@student.42abudhabi.ae>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 15:29:29 by fkhan             #+#    #+#             */
-/*   Updated: 2022/02/07 20:11:57 by fkhan            ###   ########.fr       */
+/*   Updated: 2022/02/08 00:18:40 by fkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ int ft_putlunbr_fd(unsigned int nbr, int fd)
 {
     char    c;
     int     len;
-
-	if (nbr != 0)
+    
+	if (nbr / 10)
 		len = ft_putlunbr_fd(nbr / 10, fd);
     else
         len = 0;

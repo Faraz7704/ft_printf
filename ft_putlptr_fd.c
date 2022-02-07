@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putlhex_fd.c                                    :+:      :+:    :+:   */
+/*   ft_putlptr_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fkhan <fkhan@student.42abudhabi.ae>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/07 15:29:29 by fkhan             #+#    #+#             */
-/*   Updated: 2022/02/08 01:57:09 by fkhan            ###   ########.fr       */
+/*   Created: 2022/02/08 01:53:45 by fkhan             #+#    #+#             */
+/*   Updated: 2022/02/08 02:04:03 by fkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_hexlen(unsigned int num)
+int	ft_hexlenlong(uintptr_t num)
 {
 	int	len;
 
@@ -25,32 +25,30 @@ int	ft_hexlen(unsigned int num)
 	return (len);
 }
 
-void	ft_puthex(unsigned int num, int fd, int isupper)
+void	ft_puthexlong(uintptr_t num, int fd)
 {
 	if (num >= 16)
 	{
-		ft_puthex(num / 16, fd, isupper);
-		ft_puthex(num % 16, fd, isupper);
+		ft_puthexlong(num / 16, fd);
+		ft_puthexlong(num % 16, fd);
 	}
 	else
 	{
 		if (num < 10)
 			ft_putchar_fd((num + '0'), 1);
 		else
-		{
-			if (isupper)
-				ft_putchar_fd((num - 10 + 'A'), fd);
-			else
-				ft_putchar_fd((num - 10 + 'a'), fd);
-		}
+            ft_putchar_fd((num - 10 + 'a'), fd);
 	}
 }
 
-int ft_putlhex_fd(unsigned int nbr, int fd, int isupper)
+int ft_putlptr_fd(unsigned long long ptr, int fd)
 {
-    if (nbr == 0)
-		return (write(1, "0", 1));
+    int len;
+
+    len = ft_putlstr_fd("0x", 1);
+    if (ptr == 0)
+		return (len + write(1, "0", 1));
 	else
-		ft_puthex(nbr, fd, isupper);
-	return (ft_hexlen(nbr));
+		ft_puthexlong(ptr, fd);
+	return (len + ft_hexlenlong(ptr));
 }
