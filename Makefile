@@ -6,7 +6,7 @@
 #    By: fkhan <fkhan@student.42abudhabi.ae>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/07 11:40:15 by fkhan             #+#    #+#              #
-#    Updated: 2022/02/07 14:54:04 by fkhan            ###   ########.fr        #
+#    Updated: 2022/02/07 20:12:15 by fkhan            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ LIB 			= ar -rcs
 RM				= rm -f
 
 SRCS 			= ft_printf.c ft_putlchar_fd.c ft_putlstr_fd.c \
-				  ft_putlnbr_fd.c ft_digitlen.c
+				  ft_putlnbr_fd.c ft_digitlen.c ft_putlhex_fd.c \
+				  ft_putlunbr_fd.c
 
 OBJS 			= $(SRCS:.c=.o)
 

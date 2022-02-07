@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putlunbr_fd.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fkhan <fkhan@student.42abudhabi.ae>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/07 12:17:08 by fkhan             #+#    #+#             */
-/*   Updated: 2022/02/07 20:12:09 by fkhan            ###   ########.fr       */
+/*   Created: 2022/02/07 15:29:29 by fkhan             #+#    #+#             */
+/*   Updated: 2022/02/07 20:11:57 by fkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include "libft.h"
-# include "stdarg.h"
+int ft_putlunbr_fd(unsigned int nbr, int fd)
+{
+    char    c;
+    int     len;
 
-int     ft_printf(const char *str, ...);
-int     ft_putlchar_fd(char c, int fd);
-int     ft_putlstr_fd(char *str, int fd);
-int     ft_putlnbr_fd(int nbr, int fd);
-int     ft_digitlen(int nbr);
-int     ft_putlhex_fd(int nbr, int fd, int isupper);
-int     ft_putlunbr_fd(unsigned int nbr, int fd);
-
-# endif
+	if (nbr != 0)
+		len = ft_putlunbr_fd(nbr / 10, fd);
+    else
+        len = 0;
+    len += ft_putlchar_fd(c = nbr % 10 + '0', fd);
+    return (len);
+}
