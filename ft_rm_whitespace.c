@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putlptr_fd.c                                    :+:      :+:    :+:   */
+/*   ft_rm_whitespace.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fkhan <fkhan@student.42abudhabi.ae>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/08 01:53:45 by fkhan             #+#    #+#             */
-/*   Updated: 2022/02/08 19:06:20 by fkhan            ###   ########.fr       */
+/*   Created: 2022/02/08 14:29:56 by fkhan             #+#    #+#             */
+/*   Updated: 2022/02/08 18:57:32 by fkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
-int ft_putlptr_fd(unsigned long long ptr, int fd)
+char    *ft_rm_whitespace(const char *str)
 {
-    int len;
+    int i;
 
-    len = ft_putlstr_fd("0x", 1);
-    if (ptr == 0)
-		return (len + write(1, "0", 1));
-	else
-		ft_puthex(ptr, fd, 0);
-	return (len + ft_hexlen(ptr));
+    i = 0;
+    while (str && str[i] == ' ')
+        i++;
+    return ((char *)(str + i));
 }

@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putlptr_fd.c                                    :+:      :+:    :+:   */
+/*   ft_puthex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fkhan <fkhan@student.42abudhabi.ae>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/08 01:53:45 by fkhan             #+#    #+#             */
-/*   Updated: 2022/02/08 19:06:20 by fkhan            ###   ########.fr       */
+/*   Created: 2022/02/08 19:03:20 by fkhan             #+#    #+#             */
+/*   Updated: 2022/02/08 19:03:43 by fkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_putlptr_fd(unsigned long long ptr, int fd)
+void	ft_puthex(uintptr_t num, int fd, int isupper)
 {
-    int len;
-
-    len = ft_putlstr_fd("0x", 1);
-    if (ptr == 0)
-		return (len + write(1, "0", 1));
+	if (num >= 16)
+	{
+		ft_puthex(num / 16, fd, isupper);
+		ft_puthex(num % 16, fd, isupper);
+	}
 	else
-		ft_puthex(ptr, fd, 0);
-	return (len + ft_hexlen(ptr));
+	{
+		if (num < 10)
+			ft_putchar_fd((num + '0'), 1);
+		else
+		{
+			if (isupper)
+				ft_putchar_fd((num - 10 + 'A'), fd);
+			else
+				ft_putchar_fd((num - 10 + 'a'), fd);
+		}
+	}
 }

@@ -6,18 +6,24 @@
 /*   By: fkhan <fkhan@student.42abudhabi.ae>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 11:30:01 by fkhan             #+#    #+#             */
-/*   Updated: 2022/02/08 02:05:54 by fkhan            ###   ########.fr       */
+/*   Updated: 2022/02/08 23:02:49 by fkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 // #include <stdio.h>
 
-static int    pf_lconvert(va_list ap, char format)
+static int  pf_parseflags(va_list ap, char format)
+{
+    if ()
+    return (0);
+}
+
+static int    pf_parse(va_list ap, char format)
 {
     int len;
 
-    //printf("format: %c\n", format);
+    // printf("format: %c\n", format);
     //printf("av: %i\n", (int)va_arg(ap, int));
     len = 0;
     if (format == 'c')
@@ -49,7 +55,12 @@ int ft_printf(const char *str, ...)
     while (*str)
     {
         if (*str == '%')
-            len += pf_lconvert(ap, *++str);
+        {
+            str = ft_rm_whitespace(++str);
+            len += pf_parse(ap, *str);
+            str = ft_rm_whitespace(++str);
+            len += pf_parse(ap, *str);
+        }
         else
             len += ft_putlchar_fd(*str, 1);
         str++;
@@ -60,9 +71,9 @@ int ft_printf(const char *str, ...)
 
 // int main(void)
 // {
-//     int ft_res = ft_printf(" %% ");
+//     int ft_res = ft_printf("% d", (int)-2147483648);
 //     printf("\n");
-//     int res = printf(" %% ");
+//     int res = printf("% d", (int)-2147483648);
 //     printf("\n");
 //     printf("ft_res: %d\nres: %d\n", ft_res, res);
 //     return (0);

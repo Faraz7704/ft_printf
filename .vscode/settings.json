@@ -4,6 +4,8 @@
         "*.properties": "properties",
         "iostream": "cpp",
         "ratio": "c",
-        "stdio.h": "c"
-    }
+        "stdio.h": "c",
+        "ft_printf.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
 }

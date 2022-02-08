@@ -6,7 +6,7 @@
 #    By: fkhan <fkhan@student.42abudhabi.ae>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/07 11:40:15 by fkhan             #+#    #+#              #
-#    Updated: 2022/02/08 01:58:29 by fkhan            ###   ########.fr        #
+#    Updated: 2022/02/08 19:06:42 by fkhan            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ RM				= rm -f
 
 SRCS 			= ft_printf.c ft_putlchar_fd.c ft_putlstr_fd.c \
 				  ft_putlnbr_fd.c ft_digitlen.c ft_putlhex_fd.c \
-				  ft_putlunbr_fd.c ft_putlptr_fd.c
+				  ft_putlunbr_fd.c ft_putlptr_fd.c ft_rm_whitespace.c \
+				  ft_puthex.c ft_hexlen.c
 
 OBJS 			= $(SRCS:.c=.o)
 
