@@ -6,7 +6,7 @@
 /*   By: fkhan <fkhan@student.42abudhabi.ae>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 12:17:08 by fkhan             #+#    #+#             */
-/*   Updated: 2022/02/08 19:05:14 by fkhan            ###   ########.fr       */
+/*   Updated: 2022/02/09 18:54:03 by fkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "stdarg.h"
 
 int     ft_printf(const char *str, ...);
+char    *parse_flags(char *flag);
 int     ft_putlchar_fd(char c, int fd);
 int     ft_putlstr_fd(char *str, int fd);
 int     ft_putlnbr_fd(int nbr, int fd);
