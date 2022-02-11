@@ -6,52 +6,44 @@
 /*   By: fkhan <fkhan@student.42abudhabi.ae>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 11:30:01 by fkhan             #+#    #+#             */
-/*   Updated: 2022/02/09 17:01:41 by fkhan            ###   ########.fr       */
+/*   Updated: 2022/02/11 22:04:45 by fkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 // #include <stdio.h>
 
-static int parse_wp(va_list ap, char** format)
-{
-    int len;
-    char *flags;
+// %[flags][width][.precision]specifier
 
-    len = 0;
-    while (*format && is_flag(**format))
-    {
-        if (**format == '#')
-        {
-            ft_putlchar_fd('%', 1);
-        }
-    }
-    return (len);
-}
+// "-" width: left justify, default is right [DONE]
+// "+" numbers (d, i, u): to show positive sign [DONE]
+// " " numbers (d, i, u): add space instead of positive sign [DONE]
+// "#" hexdecimal (x, X): show 0x or 0X [DONE]
+// "0" width: add 0 instead of space [DONE]
+// "." numbers (d, i, u, x, X): add leading 0's if the value is shorter than the precision number [DONE]
 
-static int    parse_printf(va_list ap, char *format)
+static int    parse_printf(va_list ap, const char *format, int fd)
 {
     int len;
     
     // printf("format: %c\n", format);
     //printf("av: %i\n", (int)va_arg(ap, int));
-    len = parse_wp(ap, &format);
+    struct printf_data data = ft_parse_flags((char *)format);
+    len = 0;
     if (*format == 'c')
-        len = ft_putlchar_fd((char)va_arg(ap, int), 1);
+        len = pf_putlchar_fd((char)va_arg(ap, int), fd, data);
     else if (*format == 's')
-        len = ft_putlstr_fd((char *)va_arg(ap, char *), 1);
+        len = pf_putlstr_fd((char *)va_arg(ap, char *), fd, data);
     else if (*format == 'p')
-        len += ft_putlptr_fd((unsigned long long)va_arg(ap, unsigned long long), 1);
-    else if (*format == 'd' || format == 'i')
-        len = ft_putlnbr_fd((int)va_arg(ap, int), 1);
+        len += pf_putlptr_fd((unsigned long long)va_arg(ap, unsigned long long), fd, data);
+    else if (*format == 'd' || *format == 'i')
+        len = pf_putlnbr_fd((int)va_arg(ap, int), fd, data);
     else if (*format == 'u')
-        len = ft_putlunbr_fd((int)va_arg(ap, int), 1);
-    else if (*format == 'x')
-        len = ft_putlhex_fd((int)va_arg(ap, unsigned int), 1, 0);
-    else if (*format == 'X')
-        len = ft_putlhex_fd((int)va_arg(ap, unsigned int), 1, 1);
+        len = pf_putlunbr_fd((int)va_arg(ap, int), fd, data);
+    else if (*format == 'x' || *format == 'X')
+        len = pf_putlhex_fd((int)va_arg(ap, unsigned int), fd, *format == 'X', data);
     else if (*format == '%')
-        len = ft_putlchar_fd('%', 1);
+        len = pf_putlchar_fd('%', fd, data);
     return (len);
 }
 
@@ -65,9 +57,9 @@ int ft_printf(const char *str, ...)
     while (*str)
     {
         if (*str == '%')
-            len += parse_printf(ap, *(++str));
+            len += parse_printf(ap, ++str, 1);
         else
-            len += ft_putlchar_fd(*str, 1);
+            len += write(1, str, 1);
         str++;
     }
     va_end(ap);

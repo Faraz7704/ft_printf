@@ -6,7 +6,7 @@
 #    By: fkhan <fkhan@student.42abudhabi.ae>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/07 11:40:15 by fkhan             #+#    #+#              #
-#    Updated: 2022/02/08 19:06:42 by fkhan            ###   ########.fr        #
+#    Updated: 2022/02/11 22:26:02 by fkhan            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,10 +17,10 @@ CFLAGS			= -Wall -Werror -Wextra
 LIB 			= ar -rcs
 RM				= rm -f
 
-SRCS 			= ft_printf.c ft_putlchar_fd.c ft_putlstr_fd.c \
-				  ft_putlnbr_fd.c ft_digitlen.c ft_putlhex_fd.c \
-				  ft_putlunbr_fd.c ft_putlptr_fd.c ft_rm_whitespace.c \
-				  ft_puthex.c ft_hexlen.c
+SRCS 			= ft_printf.c ft_printf_flags.c pf_putlchar_fd.c \
+				  pf_putlstr_fd.c pf_putlnbr_fd.c ft_digitlen.c \
+				  pf_putlhex_fd.c pf_putlunbr_fd.c pf_putlptr_fd.c \
+				  pf_width.c ft_puthex.c ft_hexlen.c
 
 OBJS 			= $(SRCS:.c=.o)
 
@@ -34,6 +34,8 @@ $(NAME): 		$(OBJS)
 
 all: 			$(NAME)
 
+bonus:			all
+
 clean:	 		
 				$(RM) $(OBJS)
 
@@ -42,4 +44,4 @@ fclean: 		clean
 
 re: 			fclean all
 
-.PHONY: 		all clean fclean re
+.PHONY: 		all bonus clean fclean re

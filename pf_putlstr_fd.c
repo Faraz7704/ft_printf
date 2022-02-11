@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putlunbr_fd.c                                   :+:      :+:    :+:   */
+/*   pf_putlstr_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fkhan <fkhan@student.42abudhabi.ae>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/07 15:29:29 by fkhan             #+#    #+#             */
-/*   Updated: 2022/02/08 18:57:29 by fkhan            ###   ########.fr       */
+/*   Created: 2022/02/07 14:20:40 by fkhan             #+#    #+#             */
+/*   Updated: 2022/02/11 22:04:58 by fkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_putlunbr_fd(unsigned int nbr, int fd)
+int ft_putlstr_fd(char *str, int fd, struct printf_data data)
 {
-    char    c;
-    int     len;
-    
-	if (nbr / 10)
-		len = ft_putlunbr_fd(nbr / 10, fd);
+    int len;
+
+    if (!str)
+        len = 6;
     else
-        len = 0;
-    len += ft_putlchar_fd(c = nbr % 10 + '0', fd);
+        len = ft_strlen(str);
+    if (!data.is_left_justify)
+        len += pf_width(data.width - len, data.is_zero, fd);
+    if (!str)
+        ft_putstr_fd("(null)", fd);
+    else
+        ft_putstr_fd(str, fd);
+    if (data.is_left_justify)
+        len += pf_width(data.width - len, data.is_zero, fd);
     return (len);
 }

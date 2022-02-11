@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putlstr_fd.c                                    :+:      :+:    :+:   */
+/*   pf_width.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fkhan <fkhan@student.42abudhabi.ae>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/07 14:20:40 by fkhan             #+#    #+#             */
-/*   Updated: 2022/02/08 18:57:27 by fkhan            ###   ########.fr       */
+/*   Created: 2022/02/08 14:29:56 by fkhan             #+#    #+#             */
+/*   Updated: 2022/02/11 18:12:04 by fkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_putlstr_fd(char *str, int fd)
+int pf_width(int n, int is_zero, int fd)
 {
-    if (!str)
+    int i;
+
+    i = 0;
+    while (i < n)
     {
-        ft_putstr_fd("(null)", fd);
-        return (6);
+        if (is_zero)
+            write(fd, "0", 1);
+        else
+            write(fd, " ", 1);
+        i++;
     }
-    ft_putstr_fd(str, fd);
-    return (ft_strlen(str));
+    return (i);
 }

@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putlnbr_fd.c                                    :+:      :+:    :+:   */
+/*   pf_putlchar_fd.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fkhan <fkhan@student.42abudhabi.ae>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/07 14:32:17 by fkhan             #+#    #+#             */
-/*   Updated: 2022/02/08 18:57:21 by fkhan            ###   ########.fr       */
+/*   Created: 2022/02/07 14:29:30 by fkhan             #+#    #+#             */
+/*   Updated: 2022/02/11 22:04:48 by fkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_putlnbr_fd(int nbr, int fd)
+int pf_putlchar_fd(char c, int fd, struct printf_data data)
 {
-    ft_putnbr_fd(nbr, fd);
-    return (ft_digitlen(nbr));
+    int	len;
+    
+    len = 1;
+    if (!data.is_left_justify)
+        len += pf_width(data.width - len, data.is_zero, fd);
+    ft_putchar_fd(c, fd);
+    if (data.is_left_justify)
+        len += pf_width(data.width - len, data.is_zero, fd);
+    return (len);
 }
