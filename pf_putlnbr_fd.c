@@ -6,13 +6,13 @@
 /*   By: fkhan <fkhan@student.42abudhabi.ae>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 14:32:17 by fkhan             #+#    #+#             */
-/*   Updated: 2022/02/11 22:04:53 by fkhan            ###   ########.fr       */
+/*   Updated: 2022/02/11 22:55:55 by fkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int pf_putlnbr_fd(int nbr, int fd, struct printf_data data)
+int pf_putlnbr_fd(int nbr, int fd, struct pf_data data)
 {
     int len;
     int preclen;

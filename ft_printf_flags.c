@@ -6,7 +6,7 @@
 /*   By: fkhan <fkhan@student.42abudhabi.ae>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 17:00:05 by fkhan             #+#    #+#             */
-/*   Updated: 2022/02/11 22:16:12 by fkhan            ###   ########.fr       */
+/*   Updated: 2022/02/11 22:55:45 by fkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ static int  ft_isflag(char format)
     return (0);
 }
 
-struct printf_data ft_parse_flags(char *flag)
+struct pf_data ft_parse_flags(char *flag)
 {
-    struct printf_data   data;
+    struct pf_data  data;
 
-    // data = (t_printf_data)malloc(sizeof(t_printf_data));
+    // data = (pf_data)malloc(sizeof(pf_data));
     // if (!data)
     //     return (NULL);
     while (*flag && (ft_isflag(*flag) || ft_isdigit(*flag)))

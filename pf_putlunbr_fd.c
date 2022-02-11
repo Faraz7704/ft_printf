@@ -6,7 +6,7 @@
 /*   By: fkhan <fkhan@student.42abudhabi.ae>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 15:29:29 by fkhan             #+#    #+#             */
-/*   Updated: 2022/02/11 22:05:44 by fkhan            ###   ########.fr       */
+/*   Updated: 2022/02/11 22:56:03 by fkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void ft_putunbr_fd(unsigned int nbr, int fd)
     ft_putchar_fd(c = nbr % 10 + '0', fd);
 }
 
-int pf_putlunbr_fd(unsigned int nbr, int fd, struct printf_data data)
+int pf_putlunbr_fd(unsigned int nbr, int fd, struct pf_data data)
 {
     int len;
     int preclen;

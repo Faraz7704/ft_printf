@@ -6,13 +6,13 @@
 /*   By: fkhan <fkhan@student.42abudhabi.ae>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 14:29:30 by fkhan             #+#    #+#             */
-/*   Updated: 2022/02/11 22:04:48 by fkhan            ###   ########.fr       */
+/*   Updated: 2022/02/11 22:55:50 by fkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int pf_putlchar_fd(char c, int fd, struct printf_data data)
+int pf_putlchar_fd(char c, int fd, struct pf_data data)
 {
     int	len;
     

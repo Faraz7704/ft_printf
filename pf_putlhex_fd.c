@@ -6,13 +6,13 @@
 /*   By: fkhan <fkhan@student.42abudhabi.ae>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 15:29:29 by fkhan             #+#    #+#             */
-/*   Updated: 2022/02/11 22:04:51 by fkhan            ###   ########.fr       */
+/*   Updated: 2022/02/11 22:55:53 by fkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int pf_putlhex_fd(unsigned int nbr, int fd, int isupper, struct printf_data data)
+int pf_putlhex_fd(unsigned int nbr, int fd, int isupper, struct pf_data data)
 {
 	int	len;
 	int	preclen;

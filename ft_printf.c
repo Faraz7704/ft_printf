@@ -6,7 +6,7 @@
 /*   By: fkhan <fkhan@student.42abudhabi.ae>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 11:30:01 by fkhan             #+#    #+#             */
-/*   Updated: 2022/02/11 22:04:45 by fkhan            ###   ########.fr       */
+/*   Updated: 2022/02/11 22:55:24 by fkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int    parse_printf(va_list ap, const char *format, int fd)
     
     // printf("format: %c\n", format);
     //printf("av: %i\n", (int)va_arg(ap, int));
-    struct printf_data data = ft_parse_flags((char *)format);
+    struct pf_data data = ft_parse_flags((char *)format);
     len = 0;
     if (*format == 'c')
         len = pf_putlchar_fd((char)va_arg(ap, int), fd, data);
