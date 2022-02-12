@@ -6,13 +6,13 @@
 /*   By: fkhan <fkhan@student.42abudhabi.ae>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 01:53:45 by fkhan             #+#    #+#             */
-/*   Updated: 2022/02/11 22:55:57 by fkhan            ###   ########.fr       */
+/*   Updated: 2022/02/12 02:25:59 by fkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_putlptr_fd(unsigned long long ptr, int fd, struct pf_data data)
+int pf_putlptr_fd(unsigned long long ptr, int fd, struct pf_data data)
 {
     int len;
 

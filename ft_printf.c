@@ -6,12 +6,12 @@
 /*   By: fkhan <fkhan@student.42abudhabi.ae>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 11:30:01 by fkhan             #+#    #+#             */
-/*   Updated: 2022/02/11 22:55:24 by fkhan            ###   ########.fr       */
+/*   Updated: 2022/02/13 01:12:13 by fkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-// #include <stdio.h>
+#include <stdio.h>
 
 // %[flags][width][.precision]specifier
 
@@ -22,28 +22,30 @@
 // "0" width: add 0 instead of space [DONE]
 // "." numbers (d, i, u, x, X): add leading 0's if the value is shorter than the precision number [DONE]
 
-static int    parse_printf(va_list ap, const char *format, int fd)
+static int    parse_printf(va_list ap, const char **format, int fd)
 {
     int len;
     
-    // printf("format: %c\n", format);
-    //printf("av: %i\n", (int)va_arg(ap, int));
-    struct pf_data data = ft_parse_flags((char *)format);
+    // printf("format: %c\n", *format);
+    // printf("av: %i\n", (int)va_arg(ap, int));
+    struct pf_data data = ft_parse_flags(format);
     len = 0;
-    if (*format == 'c')
+    // write(1, "|", 1);
+    if (**format == 'c')
         len = pf_putlchar_fd((char)va_arg(ap, int), fd, data);
-    else if (*format == 's')
+    else if (**format == 's')
         len = pf_putlstr_fd((char *)va_arg(ap, char *), fd, data);
-    else if (*format == 'p')
+    else if (**format == 'p')
         len += pf_putlptr_fd((unsigned long long)va_arg(ap, unsigned long long), fd, data);
-    else if (*format == 'd' || *format == 'i')
+    else if (**format == 'd' || **format == 'i')
         len = pf_putlnbr_fd((int)va_arg(ap, int), fd, data);
-    else if (*format == 'u')
+    else if (**format == 'u')
         len = pf_putlunbr_fd((int)va_arg(ap, int), fd, data);
-    else if (*format == 'x' || *format == 'X')
-        len = pf_putlhex_fd((int)va_arg(ap, unsigned int), fd, *format == 'X', data);
-    else if (*format == '%')
+    else if (**format == 'x' || **format == 'X')
+        len = pf_putlhex_fd((int)va_arg(ap, unsigned int), fd, **format == 'X', data);
+    else if (**format == '%')
         len = pf_putlchar_fd('%', fd, data);
+    // write(1, "|", 1);
     return (len);
 }
 
@@ -57,7 +59,10 @@ int ft_printf(const char *str, ...)
     while (*str)
     {
         if (*str == '%')
-            len += parse_printf(ap, ++str, 1);
+        {
+            str++;
+            len += parse_printf(ap, &str, 1);
+        }
         else
             len += write(1, str, 1);
         str++;
@@ -68,9 +73,9 @@ int ft_printf(const char *str, ...)
 
 // int main(void)
 // {
-//     int ft_res = ft_printf("% d", (int)-2147483648);
+//     int ft_res = ft_printf("%-10X", 1);
 //     printf("\n");
-//     int res = printf("% d", (int)-2147483648);
+//     int res = printf("%-10X", 1);
 //     printf("\n");
 //     printf("ft_res: %d\nres: %d\n", ft_res, res);
 //     return (0);
