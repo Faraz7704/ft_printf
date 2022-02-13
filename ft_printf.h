@@ -6,7 +6,7 @@
 /*   By: fkhan <fkhan@student.42abudhabi.ae>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 12:17:08 by fkhan             #+#    #+#             */
-/*   Updated: 2022/02/12 02:43:46 by fkhan            ###   ########.fr       */
+/*   Updated: 2022/02/13 16:02:55 by fkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ struct pf_data
 {
     int precision;
     int width;
+    int is_precision;
     int is_left_justify;
     int is_positive_sign;
     int is_hash;

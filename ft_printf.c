@@ -6,7 +6,7 @@
 /*   By: fkhan <fkhan@student.42abudhabi.ae>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 11:30:01 by fkhan             #+#    #+#             */
-/*   Updated: 2022/02/13 01:12:13 by fkhan            ###   ########.fr       */
+/*   Updated: 2022/02/13 19:15:47 by fkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,8 @@ static int    parse_printf(va_list ap, const char **format, int fd)
 {
     int len;
     
-    // printf("format: %c\n", *format);
-    // printf("av: %i\n", (int)va_arg(ap, int));
     struct pf_data data = ft_parse_flags(format);
+    // printf("\nformat: %c\n", **format);
     len = 0;
     // write(1, "|", 1);
     if (**format == 'c')
@@ -73,9 +72,9 @@ int ft_printf(const char *str, ...)
 
 // int main(void)
 // {
-//     int ft_res = ft_printf("%-10X", 1);
+//     int ft_res = ft_printf("%01.2d", 0);
 //     printf("\n");
-//     int res = printf("%-10X", 1);
+//     int res = printf("%01.2d", 0);
 //     printf("\n");
 //     printf("ft_res: %d\nres: %d\n", ft_res, res);
 //     return (0);

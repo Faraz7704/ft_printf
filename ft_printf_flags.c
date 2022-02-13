@@ -6,7 +6,7 @@
 /*   By: fkhan <fkhan@student.42abudhabi.ae>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 17:00:05 by fkhan             #+#    #+#             */
-/*   Updated: 2022/02/13 01:11:36 by fkhan            ###   ########.fr       */
+/*   Updated: 2022/02/13 18:22:05 by fkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 static void pf_resetdata(struct pf_data *data)
 {
     data->width = 0;
+    data->is_precision = 0;
     data->is_left_justify = 0;
     data->is_zero = 0;
     data->is_hash = 0;
@@ -53,14 +54,19 @@ static void pf_setflagvalue(const char **flag, struct pf_data *data)
 {
     while (**flag && ft_isflag(**flag))
         (*flag)++;
-    // printf("\n");
-    // printf("start flag: %s\n", *flag);
+    // printf("\nstart flag: %s\n", *flag);
     while (**flag && (ft_isdigit(**flag) || **flag == '.')) {
-        if (**flag == '.' && ft_isdigit(*(++(*flag))))
+        // printf("\nstart flag: %s\n", *flag);
+        if (**flag == '.')
         {
-            data->precision = ft_atoi(*flag);
-            // printf("precision: %d\n", data->precision);
-            *flag += ft_digitlen(data->precision);
+            data->is_precision = 1;
+            (*flag)++;
+            if (ft_isdigit(**flag))
+            {
+                data->precision = ft_atoi(*flag);
+                // printf("precision: %d\n", data->precision);
+                *flag += ft_digitlen(data->precision);
+            }
         }
         else if (!data->width)
         {
