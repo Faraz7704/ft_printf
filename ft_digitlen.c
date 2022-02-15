@@ -6,21 +6,21 @@
 /*   By: fkhan <fkhan@student.42abudhabi.ae>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 14:33:21 by fkhan             #+#    #+#             */
-/*   Updated: 2022/02/08 18:57:07 by fkhan            ###   ########.fr       */
+/*   Updated: 2022/02/15 22:20:54 by fkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_digitlen(int nbr)
+int	ft_digitlen(int nbr)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    if (nbr <= 0)
-        i++;
-    while (nbr != 0)
-    {
-        nbr /= 10;
-        i++;
-    }
-    return (i);
+	i = 0;
+	if (nbr <= 0)
+		i++;
+	while (nbr != 0)
+	{
+		nbr /= 10;
+		i++;
+	}
+	return (i);
 }
