@@ -6,11 +6,11 @@
 /*   By: fkhan <fkhan@student.42abudhabi.ae>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 17:00:05 by fkhan             #+#    #+#             */
-/*   Updated: 2022/02/15 22:34:20 by fkhan            ###   ########.fr       */
+/*   Updated: 2022/02/15 23:03:21 by fkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 static void	pf_resetdata(struct s_data *data)
 {

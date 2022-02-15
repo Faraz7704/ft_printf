@@ -6,11 +6,11 @@
 /*   By: fkhan <fkhan@student.42abudhabi.ae>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 19:03:20 by fkhan             #+#    #+#             */
-/*   Updated: 2022/02/15 22:17:08 by fkhan            ###   ########.fr       */
+/*   Updated: 2022/02/15 23:03:29 by fkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 void	ft_puthex(uintptr_t num, int fd, int isupper)
 {

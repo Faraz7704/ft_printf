@@ -6,11 +6,11 @@
 /*   By: fkhan <fkhan@student.42abudhabi.ae>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 14:32:17 by fkhan             #+#    #+#             */
-/*   Updated: 2022/02/15 22:40:03 by fkhan            ###   ########.fr       */
+/*   Updated: 2022/02/15 23:03:41 by fkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 static void	pf_putnbr_fd(int nbr, int fd)
 {

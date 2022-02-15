@@ -6,11 +6,11 @@
 /*   By: fkhan <fkhan@student.42abudhabi.ae>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 14:29:30 by fkhan             #+#    #+#             */
-/*   Updated: 2022/02/15 22:20:02 by fkhan            ###   ########.fr       */
+/*   Updated: 2022/02/15 23:03:33 by fkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	pf_putlchar_fd(char c, int fd, struct s_data data)
 {

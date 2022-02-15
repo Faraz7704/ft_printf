@@ -6,11 +6,11 @@
 /*   By: fkhan <fkhan@student.42abudhabi.ae>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 14:29:56 by fkhan             #+#    #+#             */
-/*   Updated: 2022/02/15 22:17:46 by fkhan            ###   ########.fr       */
+/*   Updated: 2022/02/15 23:03:50 by fkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	pf_width(int n, int is_zero, int fd)
 {

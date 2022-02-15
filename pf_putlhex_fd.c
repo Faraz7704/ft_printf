@@ -6,11 +6,11 @@
 /*   By: fkhan <fkhan@student.42abudhabi.ae>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 15:29:29 by fkhan             #+#    #+#             */
-/*   Updated: 2022/02/15 22:46:59 by fkhan            ###   ########.fr       */
+/*   Updated: 2022/02/15 23:03:37 by fkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 static int	ft_putlsign(int nbr, int fd, int isupper, struct s_data data)
 {

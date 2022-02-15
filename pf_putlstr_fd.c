@@ -6,11 +6,11 @@
 /*   By: fkhan <fkhan@student.42abudhabi.ae>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 14:20:40 by fkhan             #+#    #+#             */
-/*   Updated: 2022/02/15 22:19:46 by fkhan            ###   ########.fr       */
+/*   Updated: 2022/02/15 23:03:45 by fkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 static int	ft_putlstr_fd(char *s, int fd, int n)
 {

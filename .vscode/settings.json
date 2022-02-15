@@ -15,7 +15,8 @@
         "vector": "c",
         "chrono": "c",
         "__locale": "c",
-        "__threading_support": "c"
+        "__threading_support": "c",
+        "printf.h": "c"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }
