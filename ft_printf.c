@@ -6,11 +6,13 @@
 /*   By: fkhan <fkhan@student.42abudhabi.ae>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 11:30:01 by fkhan             #+#    #+#             */
-/*   Updated: 2022/02/15 23:03:26 by fkhan            ###   ########.fr       */
+/*   Updated: 2022/02/16 18:15:17 by fkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
+#include <stdio.h>
+#include <limits.h>
 
 static int	parse_printf(va_list ap, const char **f, int fd)
 {
@@ -60,9 +62,9 @@ int	ft_printf(const char *str, ...)
 
 // int main(void)
 // {
-//     int ft_res = ft_printf("%01.2d", 0);
+//     int ft_res = ft_printf(" %012d ", LONG_MIN);
 //     printf("\n");
-//     int res = printf("%01.2d", 0);
+//     int res = printf(" %012ld ", LONG_MIN);
 //     printf("\n");
 //     printf("ft_res: %d\nres: %d\n", ft_res, res);
 //     return (0);

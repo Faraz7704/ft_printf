@@ -6,11 +6,11 @@
 /*   By: fkhan <fkhan@student.42abudhabi.ae>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 14:33:21 by fkhan             #+#    #+#             */
-/*   Updated: 2022/02/15 22:20:54 by fkhan            ###   ########.fr       */
+/*   Updated: 2022/02/16 18:05:01 by fkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_digitlen(int nbr)
+int	ft_digitlen(int long nbr)
 {
 	int	i;
 
