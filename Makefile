@@ -6,12 +6,11 @@
 #    By: fkhan <fkhan@student.42abudhabi.ae>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/07 11:40:15 by fkhan             #+#    #+#              #
-#    Updated: 2022/02/11 22:53:09 by fkhan            ###   ########.fr        #
+#    Updated: 2022/02/16 18:52:24 by fkhan            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME 			= libftprintf.a
-LIBFT			= libft.a
 CC				= gcc
 CFLAGS			= -Wall -Werror -Wextra
 LIB 			= ar -rcs
@@ -20,13 +19,18 @@ RM				= rm -f
 SRCS 			= ft_printf.c ft_printf_flags.c pf_putlchar_fd.c \
 				  pf_putlstr_fd.c pf_putlnbr_fd.c ft_digitlen.c \
 				  pf_putlhex_fd.c pf_putlunbr_fd.c pf_putlptr_fd.c \
-				  pf_width.c ft_puthex.c ft_hexlen.c
+				  pf_width.c ft_puthex.c ft_hexlen.c \
+				  libft/ft_isascii.c libft/ft_isprint.c libft/ft_isalpha.c libft/ft_isdigit.c libft/ft_isalnum.c \
+				  libft/ft_tolower.c libft/ft_toupper.c libft/ft_strlen.c libft/ft_strlcpy.c libft/ft_strlcat.c \
+				  libft/ft_strchr.c libft/ft_strrchr.c libft/ft_strnstr.c libft/ft_strncmp.c libft/ft_atoi.c \
+				  libft/ft_memset.c libft/ft_bzero.c libft/ft_memcpy.c libft/ft_memmove.c libft/ft_memchr.c \
+				  libft/ft_memcmp.c libft/ft_strdup.c libft/ft_calloc.c libft/ft_substr.c libft/ft_strjoin.c \
+				  libft/ft_strtrim.c libft/ft_split.c libft/ft_itoa.c libft/ft_strmapi.c libft/ft_striteri.c \
+				  libft/ft_putchar_fd.c libft/ft_putstr_fd.c libft/ft_putendl_fd.c libft/ft_putnbr_fd.c
 
 OBJS 			= $(SRCS:.c=.o)
 
 $(NAME): 		$(OBJS)
-				cp libft/$(LIBFT) .
-				mv $(LIBFT) $(NAME)
 				$(LIB) $(NAME) $(OBJS)
 
 %.o: 			%.c

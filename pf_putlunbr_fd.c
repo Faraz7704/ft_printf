@@ -6,7 +6,7 @@
 /*   By: fkhan <fkhan@student.42abudhabi.ae>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 15:29:29 by fkhan             #+#    #+#             */
-/*   Updated: 2022/02/15 23:03:48 by fkhan            ###   ########.fr       */
+/*   Updated: 2022/02/16 18:59:01 by fkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	pf_putlunbr_fd(unsigned int nbr, int fd, struct s_data data)
 		len += (int)ft_udigitlen(nbr);
 	p = ft_preclen(len, data);
 	if (!data.is_left_justify)
-		len += pf_width(data.width - len - p, data.is_zero && nbr != 0, fd);
+		len += pf_width(data.width - len - p, data.is_zero, fd);
 	while (p-- > 0)
 		len += write(fd, "0", 1);
 	if (!data.is_precision || (nbr != 0 && data.is_precision))

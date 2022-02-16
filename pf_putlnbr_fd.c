@@ -6,7 +6,7 @@
 /*   By: fkhan <fkhan@student.42abudhabi.ae>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 14:32:17 by fkhan             #+#    #+#             */
-/*   Updated: 2022/02/16 18:13:55 by fkhan            ###   ########.fr       */
+/*   Updated: 2022/02/16 18:57:42 by fkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int	pf_putlnbr_fd(int nbr, int fd, struct s_data data)
 		len += ft_digitlen(nbr);
 	p = ft_preclen(nbr, len, data);
 	if (!data.is_left_justify)
-		len += pf_width(data.width - len - p, data.is_zero && nbr != 0, fd);
+		len += pf_width(data.width - len - p, data.is_zero, fd);
 	if (nbr < 0 && !data.is_zero)
 		ft_putchar_fd('-', fd);
 	while (p-- > 0)

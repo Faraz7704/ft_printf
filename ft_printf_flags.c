@@ -6,7 +6,7 @@
 /*   By: fkhan <fkhan@student.42abudhabi.ae>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 17:00:05 by fkhan             #+#    #+#             */
-/*   Updated: 2022/02/15 23:03:21 by fkhan            ###   ########.fr       */
+/*   Updated: 2022/02/16 19:06:38 by fkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ struct s_data	ft_parse_flags(const char **flag)
 	pf_resetdata(&data);
 	pf_setflagbool(*flag, &data);
 	pf_setflagvalue(flag, &data);
-	if (data.is_zero && data.precision)
+	if (data.is_zero && data.is_precision)
 		data.is_zero = 0;
 	return (data);
 }

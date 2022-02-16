@@ -6,7 +6,7 @@
 /*   By: fkhan <fkhan@student.42abudhabi.ae>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 11:30:01 by fkhan             #+#    #+#             */
-/*   Updated: 2022/02/16 18:15:17 by fkhan            ###   ########.fr       */
+/*   Updated: 2022/02/16 18:58:13 by fkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,17 @@ int	ft_printf(const char *str, ...)
 	return (len);
 }
 
+// void integer(int i)
+// {
+// 	printf("%d\n", i);	
+// }
+
 // int main(void)
 // {
+// 	//integer((int)LONG_MIN);
 //     int ft_res = ft_printf(" %012d ", LONG_MIN);
 //     printf("\n");
-//     int res = printf(" %012ld ", LONG_MIN);
+//     int res = printf(" %012d ", (int)LONG_MIN);
 //     printf("\n");
 //     printf("ft_res: %d\nres: %d\n", ft_res, res);
 //     return (0);
