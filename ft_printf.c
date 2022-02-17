@@ -6,13 +6,12 @@
 /*   By: fkhan <fkhan@student.42abudhabi.ae>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 11:30:01 by fkhan             #+#    #+#             */
-/*   Updated: 2022/02/16 18:58:13 by fkhan            ###   ########.fr       */
+/*   Updated: 2022/02/17 17:01:12 by fkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
-#include <limits.h>
 
 static int	parse_printf(va_list ap, const char **f, int fd)
 {
@@ -42,35 +41,31 @@ int	ft_printf(const char *str, ...)
 {
 	va_list	ap;
 	int		len;
+	int		fd;
 
 	len = 0;
+	fd = 1;
 	va_start(ap, str);
 	while (*str)
 	{
 		if (*str == '%')
 		{
 			str++;
-			len += parse_printf(ap, &str, 1);
+			len += parse_printf(ap, &str, fd);
 		}
 		else
-			len += write(1, str, 1);
+			len += write(fd, str, 1);
 		str++;
 	}
 	va_end(ap);
 	return (len);
 }
 
-// void integer(int i)
-// {
-// 	printf("%d\n", i);	
-// }
-
 // int main(void)
 // {
-// 	//integer((int)LONG_MIN);
-//     int ft_res = ft_printf(" %012d ", LONG_MIN);
+//     int ft_res = ft_printf("%%%");
 //     printf("\n");
-//     int res = printf(" %012d ", (int)LONG_MIN);
+//     int res = printf("%%%");
 //     printf("\n");
 //     printf("ft_res: %d\nres: %d\n", ft_res, res);
 //     return (0);

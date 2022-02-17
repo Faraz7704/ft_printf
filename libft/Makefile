@@ -6,28 +6,32 @@
 #    By: fkhan <fkhan@student.42abudhabi.ae>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/07 11:40:15 by fkhan             #+#    #+#              #
-#    Updated: 2022/02/17 17:01:29 by fkhan            ###   ########.fr        #
+#    Updated: 2022/02/17 16:40:26 by fkhan            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME 			= libftprintf.a
-LIBFT			= libft
+NAME 			= libft.a
 CC				= gcc
 CFLAGS			= -Wall -Werror -Wextra
 LIB 			= ar -rcs
 RM				= rm -f
 
-SRCS 			= ft_printf.c ft_printf_flags.c pf_putlchar_fd.c \
-				  pf_putlstr_fd.c pf_putlnbr_fd.c ft_digitlen.c \
-				  pf_putlhex_fd.c pf_putlunbr_fd.c pf_putlptr_fd.c \
-				  pf_width.c ft_puthex.c ft_hexlen.c
+SRCS 			= ft_isascii.c ft_isprint.c ft_isalpha.c ft_isdigit.c ft_isalnum.c \
+				  ft_tolower.c ft_toupper.c ft_strlen.c ft_strlcpy.c ft_strlcat.c \
+				  ft_strchr.c ft_strrchr.c ft_strnstr.c ft_strncmp.c ft_atoi.c \
+				  ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c ft_memchr.c \
+				  ft_memcmp.c ft_strdup.c ft_calloc.c ft_substr.c ft_strjoin.c \
+				  ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c \
+				  ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
+
+BONUS 			= ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c \
+				  ft_lstdelone.c ft_lstiter.c ft_lstlast.c ft_lstmap.c \
+				  ft_lstnew.c ft_lstsize.c
 
 OBJS 			= $(SRCS:.c=.o)
+BONUS_OBJS 		= $(BONUS:.c=.o)
 
 $(NAME): 		$(OBJS)
-				make -C $(LIBFT)
-				cp $(LIBFT)/$(LIBFT).a .
-				mv $(LIBFT).a $(NAME)
 				$(LIB) $(NAME) $(OBJS)
 
 %.o: 			%.c
@@ -35,15 +39,14 @@ $(NAME): 		$(OBJS)
 
 all: 			$(NAME)
 
-bonus:			all
+bonus:			$(BONUS)
+				$(LIB) $(NAME) $(BONUS_OBJS)
 
 clean:	 		
-				$(RM) $(OBJS)
-				make clean -C $(LIBFT)
+				$(RM) $(OBJS) $(BONUS_OBJS)
 
 fclean: 		clean
 				$(RM) $(NAME)
-				$(RM) $(LIBFT)/libft.a
 
 re: 			fclean all
 
