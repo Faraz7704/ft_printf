@@ -6,12 +6,11 @@
 /*   By: fkhan <fkhan@student.42abudhabi.ae>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 11:30:01 by fkhan             #+#    #+#             */
-/*   Updated: 2022/02/17 17:01:12 by fkhan            ###   ########.fr       */
+/*   Updated: 2022/02/18 16:52:42 by fkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 static int	parse_printf(va_list ap, const char **f, int fd)
 {
@@ -33,7 +32,9 @@ static int	parse_printf(va_list ap, const char **f, int fd)
 	else if (**f == 'x' || **f == 'X')
 		len = pf_putlhex_fd(va_arg(ap, unsigned int), fd, **f == 'X', data);
 	else if (**f == '%')
+	{
 		len = pf_putlchar_fd('%', fd, data);
+	}
 	return (len);
 }
 
@@ -51,6 +52,8 @@ int	ft_printf(const char *str, ...)
 		if (*str == '%')
 		{
 			str++;
+			if (!*str)
+				break ;
 			len += parse_printf(ap, &str, fd);
 		}
 		else
@@ -60,13 +63,3 @@ int	ft_printf(const char *str, ...)
 	va_end(ap);
 	return (len);
 }
-
-// int main(void)
-// {
-//     int ft_res = ft_printf("%%%");
-//     printf("\n");
-//     int res = printf("%%%");
-//     printf("\n");
-//     printf("ft_res: %d\nres: %d\n", ft_res, res);
-//     return (0);
-// }
